@@ -11,6 +11,12 @@ function App() {
     }
   };
 
+  const prevStep = () => {
+    if (step > 0) {
+      setStep((prev) => prev - 1);
+    }
+  };
+
   const tutorialData = [
     {
       title: "Deprímete muchísimo",
@@ -41,6 +47,7 @@ function App() {
         <Card
           currentCardData={tutorialData[step]}
           nextStepHandler={nextStep}
+          prevStepHandler={prevStep}
         ></Card>
       </div>
     </>
