@@ -3,19 +3,6 @@ import "./App.css";
 import Card from "./components/Card";
 
 function App() {
-  const [step, setStep] = useState(0);
-
-  const nextStep = () => {
-    if (step < tutorialData.length - 1) {
-      setStep((prev) => prev + 1);
-    }
-  };
-
-  const prevStep = () => {
-    if (step > 0) {
-      setStep((prev) => prev - 1);
-    }
-  };
 
   const tutorialData = [
     {
@@ -40,13 +27,31 @@ function App() {
       image: "/src/assets/time_managment.svg",
     },
   ];
+  const [step, setStep] = useState(0);
+
+  let edges = tutorialData.length
+
+  const nextStep = () => {
+    if (step < edges - 1) {
+      setStep((prev) => prev + 1);
+    }
+  };
+
+  const prevStep = () => {
+    if (step > 0) {
+      setStep((prev) => prev - 1);
+    }
+  };
+
 
   return (
     <>
         <Card
           currentCardData={tutorialData[step]}
+          step={step}
           nextStepHandler={nextStep}
           prevStepHandler={prevStep}
+          edges={edges}
         ></Card>
     </>
   );
