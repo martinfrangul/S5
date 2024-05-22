@@ -23,33 +23,31 @@ function App() {
       description:
         "Cae en un pozo depresivo cuando no encuentres la forma de alinear perfectamente un div",
       bgColor: "red",
-      image: "",
+      image: "/src/assets/meditation.svg",
     },
     {
       title: "Cuando todo pete, haz siempre lo mismo",
       description:
         "Haz siempre lo mismo si no te sale. Es una muy mala idea debuggear el código",
       bgColor: "red",
-      image: "",
+      image: "/src/assets/programming.svg",
     },
     {
       title: "Usa ChatGPT en vez de leer documentación",
       description:
         "Documentación? Para qué? Pregúntale a tu robot amigo y ahorra lectura innecesaria",
       bgColor: "red",
-      image: "",
+      image: "/src/assets/time_managment.svg",
     },
   ];
 
   return (
     <>
-      <div className="card">
         <Card
           currentCardData={tutorialData[step]}
           nextStepHandler={nextStep}
           prevStepHandler={prevStep}
         ></Card>
-      </div>
     </>
   );
 }
