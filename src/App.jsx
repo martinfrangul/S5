@@ -8,7 +8,7 @@ function App() {
     {
       title: "Usa ChatGPT en vez de leer documentación",
       description:
-        "Documentación? Para qué? Pregúntale a tu robot amigo y ahorra lectura innecesaria",
+        "¿Documentación? ¿Para qué? Pregúntale a tu robot amigo y ahorra lectura innecesaria",
       bgColor: "#4DA2A9",
       image: "/src/assets/time_managment.svg",
       id: 0

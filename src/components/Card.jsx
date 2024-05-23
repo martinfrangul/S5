@@ -68,7 +68,10 @@ function Card({
                   className="text-center flex justify-end"
                 >
                   {step > 0 && (
-                    <button
+                    <motion.button
+                    whileHover={{
+                      scale: 1.1,
+                    }}
                       className="bg-zinc-400 hover:bg-zinc-300 text-black font-bold py-3 px-3 mx-3 rounded-full"
                       onClick={prevStepHandler}
                     >
@@ -86,11 +89,14 @@ function Card({
                           d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5"
                         />
                       </svg>
-                    </button>
+                    </motion.button>
                   )}
 
                   {step < tutorialData.length - 1 && (
-                    <button
+                    <motion.button
+                      whileHover={{
+                        scale: 1.1,
+                      }}
                       className="bg-orange-800 hover:bg-orange-700 text-white py-3 px-3 mx-3 rounded-full"
                       onClick={nextStepHandler}
                     >
@@ -108,7 +114,7 @@ function Card({
                           d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5"
                         />
                       </svg>
-                    </button>
+                    </motion.button>
                   )}
                 </div>
               </div>

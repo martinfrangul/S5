@@ -1,12 +1,20 @@
 import dot from "../assets/icons8-punto-y-final-24.png";
 import line from "../assets/line.png";
+import { motion } from "framer-motion";
 
-export default function Indicator({ step, tutorialData }) {
+function Indicator({ step, tutorialData }) {
   const indicadores = tutorialData.map((item, index) => {
     if (step === index) {
-      return <img key={item.id} src={line} alt="line" />;
+      return (
+        <motion.img
+          animate={{y: 5}}
+          key={item.id}
+          src={line}
+          alt="line"
+        />
+      );
     } else {
-      return <img key={item.id} src={dot} alt="dot" />;
+      return <motion.img key={item.id} src={dot} alt="dot" />;
     }
   });
 
@@ -19,3 +27,5 @@ export default function Indicator({ step, tutorialData }) {
     </div>
   );
 }
+
+export default Indicator;
