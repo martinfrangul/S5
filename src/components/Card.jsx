@@ -33,27 +33,29 @@ function Card({
     <>
       <div className="h-screen flex items-center justify-center">
         <div className="flex justify-center items-center">
-          <div className="max-w-sm rounded overflow-hidden shadow-xl">
-            <AnimatePresence initial={false} mode="wait" custom={direction}>
-              <motion.img
-                variants={variants}
-                animate="animate"
-                initial="initial"
-                exit="exit"
-                key={currentCardData.id}
-                className="w-full p-5"
-                src={currentCardData.image}
-                alt="card-image"
-                style={{ backgroundColor: currentCardData.bgColor }}
-                custom={direction}
-              />
-            </AnimatePresence>
+          <div className="max-w-sm rounded overflow-hidden shadow-xl relative">
+            <div className="relative w-full h-64">
+              <AnimatePresence initial={false} custom={direction}>
+                <motion.img
+                  variants={variants}
+                  animate="animate"
+                  initial="initial"
+                  exit="exit"
+                  key={currentCardData.id}
+                  className="w-full h-full object-cover absolute top-0 left-0"
+                  src={currentCardData.image}
+                  alt="card-image"
+                  style={{ backgroundColor: currentCardData.bgColor }}
+                  custom={direction}
+                />
+              </AnimatePresence>
+            </div>
             <div className="px-6 py-4">
-              <h1 className="text-2xl font-semibold p-4">
+              <h1 className="text-2xl font-semibold p-4 flex items-center h-20">
                 {currentCardData.title}
               </h1>
 
-              <p className="mb-4 text-left p-4">
+              <p className="mb-4 text-left p-4 h-28">
                 {currentCardData.description}
               </p>
               <div
