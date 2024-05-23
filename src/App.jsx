@@ -31,15 +31,18 @@ function App() {
     },
   ];
   const [step, setStep] = useState(0);
-
+  const [direction, setDirection] = useState(0)
 
   const nextStep = () => {
+    setDirection(1)
     if (step < tutorialData.length - 1) {
       setStep((prev) => prev + 1);
     }
   };
 
   const prevStep = () => {
+    setDirection(-1)
+
     if (step > 0) {
       setStep((prev) => prev - 1);
     }
@@ -54,6 +57,7 @@ function App() {
           nextStepHandler={nextStep}
           prevStepHandler={prevStep}
           tutorialData={tutorialData}
+          direction={direction}
         ></Card>
     </>
   );

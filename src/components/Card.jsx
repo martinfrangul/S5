@@ -1,23 +1,53 @@
 import Indicator from "./Indicator";
+import { AnimatePresence, motion } from "framer-motion";
 
-export default function Card({
+function Card({
   currentCardData,
   nextStepHandler,
   prevStepHandler,
   step,
   tutorialData,
+  direction,
 }) {
+
+  const variants = {
+    initial: (direction) => {
+      return {
+        x: direction > 0 ? 200 : -200,
+        opacity: 0,
+      };
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction) => {
+      return {
+        x: direction > 0 ? -200 : 200,
+        opacity: 0,
+      };
+    },
+  };
+
   return (
     <>
       <div className="h-screen flex items-center justify-center">
         <div className="flex justify-center items-center">
           <div className="max-w-sm rounded overflow-hidden shadow-xl">
-            <img
-              className="w-full p-5"
-              src={currentCardData.image}
-              alt="card-image"
-              style={{ backgroundColor: currentCardData.bgColor }}
-            />
+            <AnimatePresence initial={false} mode="wait" custom={direction}>
+              <motion.img
+                variants={variants}
+                animate="animate"
+                initial="initial"
+                exit="exit"
+                key={currentCardData.id}
+                className="w-full p-5"
+                src={currentCardData.image}
+                alt="card-image"
+                style={{ backgroundColor: currentCardData.bgColor }}
+                custom={direction}
+              />
+            </AnimatePresence>
             <div className="px-6 py-4">
               <h1 className="text-2xl font-semibold p-4">
                 {currentCardData.title}
@@ -26,7 +56,10 @@ export default function Card({
               <p className="mb-4 text-left p-4">
                 {currentCardData.description}
               </p>
-              <div id="nav-card" className="flex flex-row items-center justify-between">
+              <div
+                id="nav-card"
+                className="flex flex-row items-center justify-between"
+              >
                 <Indicator step={step} tutorialData={tutorialData}></Indicator>
                 <div
                   id="buttons-container"
@@ -84,3 +117,5 @@ export default function Card({
     </>
   );
 }
+
+export default Card;
