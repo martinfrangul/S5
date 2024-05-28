@@ -48,6 +48,10 @@ function App() {
     }
   };
 
+  const changeStepFromIndicator = (index) => {
+    setStep(index)
+  }
+
 
   return (
     <>
@@ -58,6 +62,7 @@ function App() {
           prevStepHandler={prevStep}
           tutorialData={tutorialData}
           direction={direction}
+          changeStep={changeStepFromIndicator}
         ></Card>
     </>
   );

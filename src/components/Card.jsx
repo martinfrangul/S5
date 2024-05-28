@@ -2,6 +2,7 @@ import Indicator from "./Indicator";
 import { AnimatePresence, motion } from "framer-motion";
 
 function Card({
+  changeStep,
   currentCardData,
   nextStepHandler,
   prevStepHandler,
@@ -9,6 +10,7 @@ function Card({
   tutorialData,
   direction,
 }) {
+
 
   const variants = {
     initial: (direction) => {
@@ -62,7 +64,7 @@ function Card({
                 id="nav-card"
                 className="flex flex-row items-center justify-between"
               >
-                <Indicator step={step} tutorialData={tutorialData}></Indicator>
+                <Indicator step={step} tutorialData={tutorialData} changeStep={changeStep}></Indicator>
                 <div
                   id="buttons-container"
                   className="text-center flex justify-end"
